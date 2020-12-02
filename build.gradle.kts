@@ -1,4 +1,3 @@
-import io.kotless.plugin.gradle.dsl.kotless
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
 
 group = "com.example.kotless"

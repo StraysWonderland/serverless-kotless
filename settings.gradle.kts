@@ -1,2 +1,2 @@
-rootProject.name = "kotless_helloworld"
+rootProject.name = "kotless-break-even"
 
