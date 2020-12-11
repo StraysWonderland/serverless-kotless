@@ -1,3 +1,5 @@
+package com.example.kotless
+
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.kotless.dsl.lang.http.Get
 import io.kotless.dsl.lang.http.Post
@@ -17,3 +19,7 @@ fun executeWithParams(
 ): Int {
     return ceil(fixedCosts / (price - unitCosts)).toInt()
 }
+
+@Get("/hello")
+fun sayHello() = "Say Hello!"
+
