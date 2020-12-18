@@ -16,6 +16,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("io.kotless", "lang", "0.1.3")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.+")
 }
 
 tasks.withType<KotlinJvmCompile> {
