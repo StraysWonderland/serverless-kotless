@@ -2,12 +2,11 @@ package info.novatec
 
 import io.ktor.application.*
 import io.ktor.features.*
-import io.ktor.response.*
+import io.ktor.gson.*
 import io.ktor.request.*
+import io.ktor.response.*
 import io.ktor.routing.*
-import software.amazon.ion.system.IonTextWriterBuilder.json
 import kotlin.math.ceil
-
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -16,9 +15,11 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module(testing: Boolean = false) {
 
     install(ContentNegotiation) {
-        json()
+        gson {
+            setPrettyPrinting()
+            serializeNulls()
+        }
     }
-
     routing {
         post("/") {
             val breakEvenRequest = call.receive<BreakEvenRequest>()
