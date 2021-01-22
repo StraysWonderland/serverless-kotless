@@ -1,8 +1,9 @@
-package info.novatec
+package info.novatec.serverless
 
+import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
 import io.ktor.features.*
-import io.ktor.gson.*
+import io.ktor.jackson.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -10,19 +11,15 @@ import kotlin.math.ceil
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-//@Suppress("unused") // Referenced in application.conf
-//@kotlin.jvm.JvmOverloads
-//fun Application.module(testing: Boolean = false) {
-
-fun Application.module() {
-    install(DefaultHeaders)
-    install(CallLogging)
+@Suppress("unused") // Referenced in application.conf
+@kotlin.jvm.JvmOverloads
+fun Application.module(testing: Boolean = false) {
     install(ContentNegotiation) {
-        gson {
-            setPrettyPrinting()
-            serializeNulls()
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
         }
     }
+
     routing {
         post("/") {
             val breakEvenRequest = call.receive<BreakEvenRequest>()
@@ -33,3 +30,6 @@ fun Application.module() {
     }
 }
 
+data class BreakEvenRequest(val price: Double, val fixedCosts: Double, val unitCosts: Double)
+
+data class BreakEvenPoint(val breakEvenPoint: Integer)
