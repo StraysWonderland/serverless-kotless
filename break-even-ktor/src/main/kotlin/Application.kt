@@ -10,9 +10,9 @@ import kotlin.math.ceil
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-@Suppress("unused") // Referenced in application.conf
-@kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = false) {
+//@Suppress("unused") // Referenced in application.conf
+//@kotlin.jvm.JvmOverloads
+//fun Application.module(testing: Boolean = false) {
 
 //    install(ContentNegotiation) {
 //        gson {
@@ -28,7 +28,7 @@ fun Application.module(testing: Boolean = false) {
 //            call.respond(breakEvenPoint)
 //        }
 //    }
-}
+//}
 
 
 fun Application.main() {

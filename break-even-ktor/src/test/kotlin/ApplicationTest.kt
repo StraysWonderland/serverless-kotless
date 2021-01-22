@@ -1,12 +1,12 @@
 package io.ktor.samples.testable
 
 import info.novatec.main
-import info.novatec.module
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import io.netty.handler.codec.http.HttpHeaders.addHeader
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 
 class ApplicationTest {
     @Test

@@ -29,7 +29,7 @@ dependencies {
     implementation("io.kotless", "ktor-lang", "0.1.6")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
-    testImplementation("io.ktor:ktor-server-tests:$ktor_version")
+   // testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
     implementation ("io.ktor:ktor-gson:$ktor_version")
 }
