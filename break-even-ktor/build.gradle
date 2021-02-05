@@ -7,7 +7,7 @@ buildscript {
     }
     
     dependencies {
-        classpath "io.kotless:gradle:0.1.7-beta-4"
+        classpath "io.kotless:gradle:$kotless_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    implementation "io.kotless:ktor-lang:0.1.7-beta-4"
+    implementation "io.kotless:ktor-lang:$kotless_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
