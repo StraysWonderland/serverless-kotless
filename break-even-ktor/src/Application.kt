@@ -1,6 +1,7 @@
 package info.novatec.serverless
 
 import com.fasterxml.jackson.databind.SerializationFeature
+import io.kotless.dsl.ktor.Kotless
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.jackson.*
@@ -13,7 +14,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = false) {
+fun Application.module() {
     install(ContentNegotiation) {
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)
@@ -33,3 +34,7 @@ fun Application.module(testing: Boolean = false) {
 data class BreakEvenRequest(val price: Double, val fixedCosts: Double, val unitCosts: Double)
 
 data class BreakEvenPoint(val breakEvenPoint: Integer)
+
+class Server : Kotless() {
+    override fun prepare(app: Application) {}
+}
