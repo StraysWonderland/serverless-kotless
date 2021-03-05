@@ -18,6 +18,24 @@ repositories {
     jcenter()
 }
 
+kotless {
+    config {
+        bucket = "my.kotless.bucket"
+
+        terraform {
+            profile = "my.kotless.user"
+            region = "eu-west-1"
+        }
+    }
+    webapp {
+        lambda {
+            kotless {
+                packages = setOf("info.novatec.serverless")
+            }
+        }
+    }
+}
+
 dependencies {
     implementation("io.kotless", "ktor-lang", "0.1.7-beta-4")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
