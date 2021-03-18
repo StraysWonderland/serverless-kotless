@@ -11,6 +11,8 @@ version = "0.0.1"
 plugins {
     kotlin("jvm") version "1.3.72" apply true
     id("io.kotless") version "0.1.7-beta-4" apply true
+    kotlin("jvm") version "1.4.21" apply true
+    id("io.kotless") version "0.1.7-beta-5" apply true
 }
 
 repositories {
