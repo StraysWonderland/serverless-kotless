@@ -36,6 +36,14 @@ sourceSets["test"].resources.srcDirs("testresources")
 kotless {
     config {
         bucket = "my.kotless.bucket"
+        prefix = "dev"
+        dsl {
+            type = io.kotless.DSLType.Ktor
+            //or for Ktor
+            //type = DSLType.Ktor
+            //or for SpringBoot
+            //type = DSLType.SpringBoot
+        }
 
         terraform {
             profile = "my.kotless.user"
