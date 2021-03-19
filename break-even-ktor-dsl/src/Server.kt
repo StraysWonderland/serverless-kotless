@@ -25,7 +25,8 @@ class Server : Kotless() {
 
                 val breakEvenRequest = call.receive<BreakEvenRequest>()
                 val breakEvenPoint =
-                    ceil(breakEvenRequest.fixedCosts / (breakEvenRequest.price - breakEvenRequest.unitCosts)).toInt()
+                    ceil(breakEvenRequest.fixedCosts /
+                            (breakEvenRequest.price - breakEvenRequest.unitCosts)).toInt()
                 call.respond(breakEvenPoint)
             }
         }
