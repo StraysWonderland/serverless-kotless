@@ -37,10 +37,6 @@ kotless {
         prefix = "dev"
         dsl {
             type = io.kotless.DSLType.Ktor
-            //or for Ktor
-            //type = DSLType.Ktor
-            //or for SpringBoot
-            //type = DSLType.SpringBoot
         }
 
         terraform {
