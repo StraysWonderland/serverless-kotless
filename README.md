@@ -38,4 +38,36 @@ kotless {
  }
  ```
  
- Note: this currently leads to a malformed terraform file that aborts deployment
+## Problems
+### Note to deployment task
+this currently leads to a malformed terraform file that aborts deployment due to Invalid data resource names
+```bash
+Error: Invalid data resource name
+
+  on breakeven.tf line 157, in data "aws_iam_policy_document" "0_assume":
+ 157: data "aws_iam_policy_document" "0_assume" {
+ 
+A name must start with a letter or underscore and may contain only letters,
+digits, underscores, and dashes.
+```
+This could currently not be fixed either through adding the "prefix" command into gradle or through editing the kotless library and adding a prefix generation in the name as well:
+
+In ```io.kotless.gen.GenerationContext.kt```
+```kotlin
+inner class Names {
+        fun tf(vararg name: String) = tf(name.toList())
+        fun tf(part: String, parts: Iterable<String>) = tf(part.plusIterable(parts))
+        fun tf(parts: Iterable<String>, part: String) = tf(parts.plus(part))
+     >  fun tf(name: Iterable<String>) = (schema.config.prefix.plusIterable(name)).flatMap { Text.deall(it) }.joinToString(separator = "_") { it.toLowerCase() }
+
+        fun aws(vararg name: String) = aws(name.toList())
+        fun aws(part: String, parts: Iterable<String>) = aws(part.plusIterable(parts))
+        fun aws(parts: Iterable<String>, part: String) = aws(parts.plus(part))
+        fun aws(name: Iterable<String>): String {
+            return (schema.config.prefix.plusIterable(name)).flatMap { Text.deall(it) }.joinToString(separator = "-") { it.toLowerCase() }
+        }
+}
+```
+    
+
+
