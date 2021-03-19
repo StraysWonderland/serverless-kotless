@@ -38,4 +38,4 @@ kotless {
  }
  ```
  
- Note: this currently leads to a malformed terraform file that does not aborts deployment
+ Note: this currently leads to a malformed terraform file that aborts deployment
