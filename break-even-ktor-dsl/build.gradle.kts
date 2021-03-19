@@ -9,8 +9,6 @@ group = "info.novatec"
 version = "0.0.1"
 
 plugins {
-    kotlin("jvm") version "1.3.72" apply true
-    id("io.kotless") version "0.1.7-beta-4" apply true
     kotlin("jvm") version "1.4.21" apply true
     id("io.kotless") version "0.1.7-beta-5" apply true
 }
@@ -22,9 +20,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    testImplementation("io.ktor:ktor-server-tests:$ktor_version")
-    implementation("io.kotless", "ktor-lang", "$kotless_version")
+    implementation("io.kotless:ktor-lang:$kotless_version")
     implementation("io.ktor:ktor-gson:$ktor_version")
 }
 
